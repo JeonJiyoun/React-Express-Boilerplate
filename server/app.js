@@ -4,8 +4,11 @@ const express = require('express'); // express framework 사용
 const app = express(); // express 실행
 const port = process.env.PORT; // env 파일 내에서 PORT변수 가져옴  
 const apiRouter = require('./routes/index'); // endpoint 가 api 로 시작하면 route 폴더안에 있는 index.js  폴더로 이동
+var logger = require('morgan');
 
 //ssr(express server 에서 build 된 react html 파일을 render) + csr(이후 render)
+
+app.use(logger());
 
 app.use('/api', apiRouter);
 
